@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>遊戲模式 - 3D街機遊戲機</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            color: white;
+            font-family: 'JetBrains Mono', monospace;
+            overflow: hidden;
+        }
+        
+        #arcade-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+        
+        .test-info {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid #3b82f6;
+            z-index: 1000;
+            max-width: 300px;
+        }
+        
+        .test-info h2 {
+            margin: 0 0 10px 0;
+            color: #3b82f6;
+            font-size: 18px;
+        }
+        
+        .test-info p {
+            margin: 5px 0;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        
+        .controls {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid #4ECDC4;
+            z-index: 1000;
+        }
+        
+        .controls h3 {
+            margin: 0 0 10px 0;
+            color: #4ECDC4;
+            font-size: 16px;
+        }
+        
+        .controls p {
+            margin: 3px 0;
+            font-size: 12px;
+            color: #ccc;
+        }
+        
+        .level-indicator {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid #ffd700;
+            z-index: 1000;
+            text-align: center;
+        }
+        
+        .level-indicator h3 {
+            margin: 0 0 10px 0;
+            color: #ffd700;
+            font-size: 16px;
+        }
+        
+        .level-indicator .level-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+        }
+        
+        .level-indicator .progress-bar {
+            width: 200px;
+            height: 8px;
+            background: #333;
+            border-radius: 4px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+        
+        .level-indicator .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4ECDC4, #3b82f6);
+            transition: width 0.3s ease;
+        }
+        
+        
+        /* 主頁模式切換開關 */
+        .home-mode-switch {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex !important;
+            align-items: center;
+            gap: 12px;
+            background: rgba(0, 0, 0, 0.95);
+            border: 2px solid #3b82f6;
+            border-radius: 10px;
+            padding: 15px;
+            z-index: 10000;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+            min-width: 120px;
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 44px;
+            height: 20px;
+        }
+        
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ffffff;
+            transition: all 0.3s ease;
+            border-radius: 20px;
+            border: 1px solid #1e3a8a;
+        }
+        
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 1px;
+            bottom: 1px;
+            background-color: #1e3a8a;
+            transition: all 0.3s ease;
+            border-radius: 50%;
+        }
+        
+        /* 開啟狀態 - 深藍色背景，白色滑塊 */
+        input:checked + .slider {
+            background-color: #1e3a8a;
+            border-color: #1e3a8a;
+        }
+        
+        input:checked + .slider:before {
+            transform: translateX(24px);
+            background-color: #ffffff;
+        }
+        
+        /* 懸停效果 */
+        .slider:hover {
+            border-color: #2563eb;
+            box-shadow: 0 0 8px rgba(59, 130, 246, 0.3);
+        }
+        
+        input:checked + .slider:hover {
+            box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
+        }
+        
+        .switch-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 1px;
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            user-select: none;
+            position: relative;
+        }
+        
+        .switch-label::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #3b82f6, #1e3a8a);
+            transition: width 0.3s ease;
+        }
+        
+        .home-mode-switch:hover .switch-label {
+            color: #3b82f6;
+            text-shadow: 0 0 10px #3b82f6;
+        }
+        
+        .home-mode-switch:hover .switch-label::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="arcade-container"></div>
+    
+    <div class="test-info">
+        <h2>🎮 遊戲模式介紹</h2>
+        <p><strong>功能說明：</strong></p>
+        <p>• 拖移可旋轉遊戲機</p>
+        <p>• 點擊遊戲機進入遊戲</p>
+        <p></p>
+        <p>• 吃豆人：吃完CHLOE豆子</p>
+        <p>• 太空侵略者：消滅XINTI侵略者</p>
+        <p></p>
+        <p>• 完成兩關後即可通關</p>
+    </div>
+    
+    <div class="level-indicator">
+        <h3>🎮 遊戲模式</h3>
+        <div class="level-number" id="level-display">吃豆人</div>
+        <div id="progress-text">目標: 完成一次遊戲</div>
+    </div>
+    
+    <div class="controls">
+        <h3>🎯 遊戲控制</h3>
+        <p><strong>移動：</strong> A/D 或 ←/→</p>
+        <p><strong>射擊：</strong> 空白鍵</p>
+        <p><strong>切換遊戲：</strong> G 鍵</p>
+        <p><strong>視角切換：</strong> 點擊螢幕</p>
+        <p><strong>退出遊戲：</strong> ESC 鍵</p>
+    </div>
+    
+    
+    <!-- 主頁模式切換開關 -->
+    <div class="home-mode-switch">
+        <span class="switch-label">主頁模式</span>
+        <label class="switch">
+            <input type="checkbox" id="homeModeToggle">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    
+    <!-- 遊戲主程式 -->
+    <script src="arcade3d.js"></script>
+    
+    <script>
+        // 初始化遊戲
+        let arcadeMachine;
+        
+        // 等待頁面載入完成
+        window.addEventListener('load', () => {
+            console.log('🎮 開始初始化關卡系統測試...');
+            
+            // 創建街機遊戲機實例
+            arcadeMachine = new ArcadeMachine3D();
+            
+            // 監聽關卡變化事件
+            document.addEventListener('levelChanged', (event) => {
+                updateLevelDisplay(event.detail);
+            });
+            
+            // 監聽進度變化事件
+            document.addEventListener('progressChanged', (event) => {
+                updateProgressDisplay(event.detail);
+            });
+            
+            console.log('✅ 關卡系統測試初始化完成！');
+        });
+        
+        function updateLevelDisplay(gameModeData) {
+            const levelDisplay = document.getElementById('level-display');
+            const progressText = document.getElementById('progress-text');
+            
+            let modeText = '';
+            switch(gameModeData.gameMode) {
+                case 'pacman':
+                    modeText = '👻 吃豆人';
+                    break;
+                case 'space_invaders':
+                    modeText = '👽 太空侵略者';
+                    break;
+            }
+            
+            levelDisplay.textContent = modeText;
+            progressText.textContent = '目標: 完成一次遊戲';
+            progressText.style.color = '#fff';
+        }
+        
+        // 定期更新顯示
+        setInterval(() => {
+            if (arcadeMachine && arcadeMachine.gameState) {
+                const gameState = arcadeMachine.gameState;
+                
+                updateLevelDisplay({
+                    gameMode: gameState.gameMode
+                });
+            }
+        }, 100);
+        
+        
+        // 主頁模式切換功能
+        document.addEventListener('DOMContentLoaded', () => {
+            const homeModeToggle = document.getElementById('homeModeToggle');
+            if (homeModeToggle) {
+                // 初始化：在遊戲模式頁面，switch應該顯示為開啟狀態（按鈕在右邊）
+                homeModeToggle.checked = true;
+                
+                homeModeToggle.addEventListener('change', function() {
+                    // 修改邏輯：只要按鈕往左（unchecked）就切回主頁模式
+                    if (!this.checked) {
+                        console.log('🏠 切換到主頁模式');
+                        // 添加切換動畫效果
+                        this.parentElement.style.transform = 'scale(1.1)';
+                        setTimeout(() => {
+                            this.parentElement.style.transform = 'scale(1)';
+                        }, 200);
+                        
+                        // 延遲跳轉以顯示動畫效果
+                        setTimeout(() => {
+                            window.location.href = 'index.html';
+                        }, 300);
+                    }
+                });
+                
+                // 為標籤添加點擊事件
+                const homeSwitchLabel = document.querySelector('.home-mode-switch .switch-label');
+                if (homeSwitchLabel) {
+                    homeSwitchLabel.addEventListener('click', function() {
+                        // 點擊標籤時直接切換到主頁模式（按鈕往左）
+                        homeModeToggle.checked = false;
+                        homeModeToggle.dispatchEvent(new Event('change'));
+                    });
+                }
+                
+                console.log('✅ 主頁模式切換開關已初始化（遊戲模式狀態）');
+            } else {
+                console.error('❌ 主頁模式切換開關未找到');
+            }
+        });
+    </script>
+</body>
+</html>

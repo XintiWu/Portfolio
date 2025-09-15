@@ -1,0 +1,726 @@
+
+
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chloe Wu's Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles_new_hero.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>Chloe's Portfolio</h1>
+            </div>
+            <nav class="nav-menu">
+                <a href="#hero" class="nav-link active">Home</a>
+                <a href="#photography" class="nav-link">Arts</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#blog" class="nav-link">Blog</a>
+                <div class="game-mode-switch">
+                    <span class="switch-label">遊戲模式</span>
+                    <label class="switch">
+                        <input type="checkbox" id="gameModeToggle">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </nav>
+            <div class="location">
+                <a href="#contact" class="nav-link">Contact Me</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <!-- Hero Section -->
+        <section class="hero-section" id="hero">
+            <div class="container">
+                <div class="content-grid">
+                    <div class="content-left">
+                        <h1 class="main-title">Chloe Wu</h1>
+                        <p class="description">
+                            Hi, I'm Xin-Ti Wu (Chloe), a National Taiwan University (NTU) student who loves sleeping and is currently learning web development. I'm from Hualien but I don't know how to ride a wild boar. I always add ice cubes to my instant noodles because they're super hot.
+                        </p>
+                        <p class="description">
+                            嗨！我是吳昕醍，國立台灣大學學生，喜歡睡覺，正在學習網頁開發。<br>
+                            我是花蓮人，但是沒有騎過山豬。吃泡麵會加冰塊，因為非常燙。
+                        </p>
+                    </div>
+                    <div class="content-right">
+                        <div class="illustration">
+                            <div id="arcade-container" class="arcade-3d">
+                                <div class="arcade-controls">
+                                    <p class="arcade-hint">拖動旋轉遊戲機</p>
+                                    <p class="arcade-hint">點擊螢幕開始遊戲！</p>
+                                    <p class="arcade-hint">按 G 切換遊戲模式</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Photography Section -->
+        <section class="photography-section" id="photography">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title tech-title">photos</h2>
+                </div>
+                
+                <div class="gallery-filters">
+                    <button class="filter-btn" data-filter="photography">horizontal</button>
+                    <button class="filter-btn active" data-filter="artworks">vertical</button>
+                </div>
+
+                <div class="gallery-container">
+                    <div class="gallery-wrapper">
+                        <div class="gallery" id="gallery">
+                            <!-- 橫向照片 (images 資料夾) - 使用原本比例 -->
+                            <div class="gallery-item landscape" data-category="photography">
+                                <div class="gallery-image">
+                                    <img src="images/DSCF8913.JPG" alt="Photo 1" class="gallery-img">
+                                </div>
+                            </div>
+                            
+                            <div class="gallery-item landscape" data-category="photography">
+                                <div class="gallery-image">
+                                    <img src="images/DSCF8914.JPG" alt="Photo 2" class="gallery-img">
+                                </div>
+                            </div>
+                            
+                            <div class="gallery-item landscape" data-category="photography">
+                                <div class="gallery-image">
+                                    <img src="images/DSCF9431.JPG" alt="Photo 3" class="gallery-img">
+                                </div>
+                            </div>
+                            
+                            <div class="gallery-item landscape" data-category="photography">
+                                <div class="gallery-image">
+                                    <img src="images/DSCF9450.JPG" alt="Photo 4" class="gallery-img">
+                                </div>
+                            </div>
+                            
+                            <div class="gallery-item landscape" data-category="photography">
+                                <div class="gallery-image">
+                                    <img src="images/DSCF9470.JPG" alt="Photo 5" class="gallery-img">
+                                </div>
+                            </div>
+                            
+                            <div class="gallery-item landscape" data-category="photography">
+                                <div class="gallery-image">
+                                    <img src="images/DSCF9473.JPG" alt="Photo 6" class="gallery-img">
+                                </div>
+                            </div>
+                            
+                            <div class="gallery-item landscape" data-category="photography">
+                                <div class="gallery-image">
+                                    <img src="images/DSCF9541.JPG" alt="Photo 7" class="gallery-img">
+                                </div>
+                            </div>
+                            
+                            <div class="gallery-item landscape" data-category="photography">
+                                <div class="gallery-image">
+                                    <img src="images/DSCF9704.JPG" alt="Photo 8" class="gallery-img">
+                                </div>
+                            </div>
+                            
+                            <div class="gallery-item landscape" data-category="photography">
+                                <div class="gallery-image">
+                                    <img src="images/DSCF9721.JPG" alt="Photo 9" class="gallery-img">
+                                </div>
+                            </div>
+                            
+                            <div class="gallery-item landscape" data-category="photography">
+                                <div class="gallery-image">
+                                    <img src="images/8B0EF995-A23E-4018-A666-2C9CE1FFC6EC.jpg" alt="Photo 10" class="gallery-img">
+                                </div>
+                            </div>
+
+                            <!-- 直向照片 (ver 資料夾) - 使用 3:4 比例 -->
+                            <div class="gallery-item portrait" data-category="artworks">
+                                <div class="gallery-image">
+                                    <img src="ver/1.jpg" alt="Photo 1" class="gallery-img">
+                                </div>
+                            </div>
+                            
+                            <div class="gallery-item portrait" data-category="artworks">
+                                <div class="gallery-image">
+                                    <img src="ver/2.JPG" alt="Photo 2" class="gallery-img">
+                                </div>
+                            </div>
+                            
+                            <div class="gallery-item portrait" data-category="artworks">
+                                <div class="gallery-image">
+                                    <img src="ver/3.JPG" alt="Photo 3" class="gallery-img">
+                                </div>
+                            </div>
+                            
+                            <div class="gallery-item portrait" data-category="artworks">
+                                <div class="gallery-image">
+                                    <img src="ver/4.JPG" alt="Photo 4" class="gallery-img">
+                                </div>
+                            </div>
+                            
+                            <div class="gallery-item portrait" data-category="artworks">
+                                <div class="gallery-image">
+                                    <img src="ver/5.JPG" alt="Photo 5" class="gallery-img">
+                                </div>
+                            </div>
+                            
+                            <div class="gallery-item portrait" data-category="artworks">
+                                <div class="gallery-image">
+                                    <img src="ver/6.jpg" alt="Photo 6" class="gallery-img">
+                                </div>
+                            </div>
+                            
+                            <div class="gallery-item portrait" data-category="artworks">
+                                <div class="gallery-image">
+                                    <img src="ver/7.JPG" alt="Photo 7" class="gallery-img">
+                                </div>
+                            </div>
+                            
+                            <div class="gallery-item portrait" data-category="artworks">
+                                <div class="gallery-image">
+                                    <img src="ver/8.jpg" alt="Photo 8" class="gallery-img">
+                                </div>
+                            </div>
+                            
+                            <div class="gallery-item portrait" data-category="artworks">
+                                <div class="gallery-image">
+                                    <img src="ver/9.jpg" alt="Photo 9" class="gallery-img">
+                                </div>
+                            </div>
+                            
+                            <div class="gallery-item portrait" data-category="artworks">
+                                <div class="gallery-image">
+                                    <img src="ver/10.jpg" alt="Photo 10" class="gallery-img">
+                                </div>
+                            </div>
+                            
+                            <div class="gallery-item portrait" data-category="artworks">
+                                <div class="gallery-image">
+                                    <img src="ver/11.jpg" alt="Photo 11" class="gallery-img">
+                                </div>
+                            </div>
+                            
+                            <div class="gallery-item portrait" data-category="artworks">
+                                <div class="gallery-image">
+                                    <img src="ver/12.JPG" alt="Photo 12" class="gallery-img">
+                                </div>
+                            </div>
+                            
+                            <div class="gallery-item portrait" data-category="artworks">
+                                <div class="gallery-image">
+                                    <img src="ver/13.JPG" alt="Photo 13" class="gallery-img">
+                                </div>
+                            </div>
+                            
+                            <div class="gallery-item portrait" data-category="artworks">
+                                <div class="gallery-image">
+                                    <img src="ver/14.jpg" alt="Photo 14" class="gallery-img">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-navigation">
+                    <button class="gallery-btn prev-btn" id="prevBtn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                        </svg>
+                    </button>
+                    <button class="view-gallery-btn tech-border">
+                        View Full Gallery
+                    </button>
+                    <button class="gallery-btn next-btn" id="nextBtn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="projects-section" id="projects">
+            <div class="container">
+                <div class="page-header">
+                    <h1 class="page-title tech-title">projects</h1>
+                    <p class="page-subtitle">from ideas to execution</p>
+                </div>
+
+                <div class="projects-grid">
+                    <div class="project-card tech-border">
+                        <div class="project-header">
+                            <span class="project-type">Website</span>
+                            <div class="project-status">
+                                <span class="status-dot"></span>
+                                <span class="status-text">Live</span>
+                            </div>
+                        </div>
+                        <h2 class="project-title">Interactive Portfolio</h2>
+                        <p class="project-description">
+                            A web application integrating Three.js WebGL rendering with 3D arcade mechanics, featuring real-time particle systems, camera controls, and immersive user experience.
+                        </p>
+                        <div class="project-achievements">
+                            <p>WebGL 3D rendering with GLTF model loading</p>
+                            <p>Particle effects and physics simulation</p>
+                            <p>Interactive experiences with responsive design</p>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Three.js</span>
+                            <span class="tech-tag">WebGL</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">CSS3</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="game_mode.html" class="project-link">Interactive Demo</a>
+                            <a href="#hero" class="project-link external">
+                                View Site
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                                    <path d="M1 11L11 1M11 1H1M11 1V11"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-card tech-border">
+                        <div class="project-header">
+                            <span class="project-type">HCI Research</span>
+                            <div class="project-status">
+                                <span class="status-dot"></span>
+                                <span class="status-text">Published</span>
+                            </div>
+                        </div>
+                        <h2 class="project-title">Graph-Based Visual Interface for Scaffolding Skill Acquisition</h2>
+                        <p class="project-description">
+                            Designed through HCI research and iterative prototyping, this interactive interface uses a force-directed graph layout to visualize skill relationships, support goal planning, and sharing platform.<br><br>
+                            <a href="https://taichi2025.taiwanchi.org/#/" class="taichi-link">🏆 <span class="taichi-text">TAICHI'25</span></a>
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">UX</span>
+                            <span class="tech-tag">Human-Computer Interaction</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card tech-border">
+                        <div class="project-header">
+                            <span class="project-type">AI Platform</span>
+                            <div class="project-status">
+                                <span class="status-dot coming-soon"></span>
+                                <span class="status-text">Offline</span>
+                            </div>
+                        </div>
+                        <h2 class="project-title">HueFactory</h2>
+                        <p class="project-description">
+                            An AI-powered platform that transforms color palettes into stunning visuals.<br>
+                            Simply choose a palette and enter a theme — our AI instantly generates contextual scene images that match your selected colors.
+                        </p>
+                        <div class="project-achievements">
+                            <p>Designed to bridge the gap between visual inspiration and creative execution for designers, creators, and everyday users.</p>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">FastAPI</span>
+                            <span class="tech-tag">SQLite</span>
+                            <span class="tech-tag">JWT Auth</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section class="blog-section" id="blog">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title tech-title">Blogs & Notes</h2>
+                    <p class="section-subtitle">寫下來，我怕我自己忘記</p>
+                    <div class="section-meta">
+                        <span class="meta-number">Issue #1</span>
+                        <span class="meta-year">2025</span>
+                    </div>
+                </div>
+
+                <div class="blog-layout">
+                    <div class="blog-content">
+                        <div class="featured-post">
+                            <div class="post-category">coding</div>
+                            <div class="post-date">September 14, 2025</div>
+                            <h3 class="post-title">
+                                這個網頁的開發過程 | 從零開始的網頁設計
+                            </h3>
+                            <p class="post-excerpt">
+                                在這篇文章中，我想紀錄我寫個人網站修過的bug、卡關的困難、以及曾經做過但已經改變的設計，但是我還沒寫我還沒寫我還沒寫。
+                            </p>
+                            <div class="post-meta">
+                                <span class="read-time">8 min read</span>
+                                <a href="javascript:void(0);" class="continue-reading">Continue reading ></a>
+                            </div>
+                        </div>
+
+                        <div class="blog-list">
+                            <div class="blog-item">
+                                <div class="blog-category photography">PHOTOGRAPHY</div>
+                                <div class="blog-content-text">
+                                    <h4 class="blog-title">如何把花蓮鯉魚潭拍得像瑞士日內瓦湖</h4>
+                                    <div class="blog-meta">
+                                        <span class="blog-read-time">12 min</span>
+                                        <span class="blog-date">Jan 20</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="blog-item">
+                                <div class="blog-category">CODING</div>
+                                <div class="blog-content-text">
+                                    <h4 class="blog-title">GLTF 模型載入與 WebGL 3D 渲染</h4>
+                                    <div class="blog-meta">
+                                        <span class="blog-read-time">6 min</span>
+                                        <span class="blog-date">Mar 31</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="blog-item">
+                                <div class="blog-category">CODING</div>
+                                <div class="blog-content-text">
+                                    <h4 class="blog-title">隨機粒子效果和物理模擬</h4>
+                                    <div class="blog-meta">
+                                        <span class="blog-read-time">10 min</span>
+                                        <span class="blog-date">Dec 15</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section" id="contact">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title tech-title">聯絡我</h2>
+                    <p class="section-subtitle">Let's connect and create something amazing together</p>
+                </div>
+                
+                <div class="contact-links">
+                    <a href="https://www.instagram.com/x.inti_/" class="contact-link" target="_blank" rel="noopener noreferrer">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </div>
+                        <span class="contact-text">Instagram</span>
+                    </a>
+                    
+                    <a href="https://www.linkedin.com/in/xin-ti-wu-20863935b/" class="contact-link" target="_blank" rel="noopener noreferrer">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </div>
+                        <span class="contact-text">LinkedIn</span>
+                    </a>
+                    
+                    <a href="https://github.com/XintiWu" class="contact-link" target="_blank" rel="noopener noreferrer">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </div>
+                        <span class="contact-text">GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="nav_smart.js"></script>
+    <script src="camera_controller.js"></script>
+    <script src="arcade3d.js"></script>
+    <script>
+        // 平滑滾動導航功能
+        document.addEventListener('DOMContentLoaded', function() {
+            // 為所有導航連結添加平滑滾動
+            const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        // 移除所有 active 類別
+                        navLinks.forEach(nav => nav.classList.remove('active'));
+                        // 添加 active 類別到當前點擊的連結
+                        this.classList.add('active');
+                        
+                        // 平滑滾動到目標元素，考慮 header 高度和適當間距
+                        const headerElement = document.querySelector('.header');
+                        const headerHeight = headerElement ? headerElement.offsetHeight : 80;
+                        const targetPosition = targetElement.offsetTop - headerHeight + 30; // 往上調整 15px，讓左右按鈕不被切到
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // 滾動時更新導航狀態
+            window.addEventListener('scroll', function() {
+                const sections = document.querySelectorAll('section[id]');
+                const headerElement = document.querySelector('.header');
+                const headerHeight = headerElement ? headerElement.offsetHeight : 80;
+                const scrollPos = window.scrollY + headerHeight + 20; // 進一步減少偏移量
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    const sectionId = section.getAttribute('id');
+                    
+                    if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                        // 移除所有 active 類別
+                        navLinks.forEach(nav => nav.classList.remove('active'));
+                        // 添加 active 類別到對應的導航連結
+                        const activeLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+                        if (activeLink) {
+                            activeLink.classList.add('active');
+                        }
+                    }
+                });
+            });
+        });
+        
+        // 調試信息
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🎯 index.html 載入完成');
+            console.log('🔍 檢查 arcade-container:', document.getElementById('arcade-container'));
+            console.log('🔍 檢查 ArcadeMachine3D:', typeof ArcadeMachine3D);
+            
+            // 初始化 3D 遊戲機
+            const container = document.getElementById('arcade-container');
+            if (container && typeof ArcadeMachine3D !== 'undefined') {
+                console.log('✅ 初始化 ArcadeMachine3D...');
+                const arcadeMachine = new ArcadeMachine3D();
+                console.log('✅ 遊戲機初始化完成');
+            } else {
+                console.error('❌ 無法初始化遊戲機:', {
+                    container: !!container,
+                    ArcadeMachine3D: typeof ArcadeMachine3D
+                });
+            }
+            
+            // 遊戲模式切換功能
+            const gameModeToggle = document.getElementById('gameModeToggle');
+            if (gameModeToggle) {
+                // 初始化：在主頁模式，switch應該顯示為關閉狀態（按鈕在左邊）
+                gameModeToggle.checked = false;
+                
+                gameModeToggle.addEventListener('change', function() {
+                    if (this.checked) {
+                        console.log('🎮 切換到遊戲模式');
+                        // 添加切換動畫效果
+                        this.parentElement.style.transform = 'scale(1.1)';
+                        setTimeout(() => {
+                            this.parentElement.style.transform = 'scale(1)';
+                        }, 200);
+                        
+                        // 延遲跳轉以顯示動畫效果
+                        setTimeout(() => {
+                            window.location.href = 'game_mode.html';
+                        }, 300);
+                    }
+                });
+                
+                // 為標籤添加點擊事件
+                const switchLabel = document.querySelector('.switch-label');
+                if (switchLabel) {
+                    switchLabel.addEventListener('click', function() {
+                        gameModeToggle.checked = !gameModeToggle.checked;
+                        gameModeToggle.dispatchEvent(new Event('change'));
+                    });
+                }
+                
+                console.log('✅ 遊戲模式切換開關已初始化（主頁模式狀態）');
+            }
+            
+        // Gallery functionality
+        console.log('Gallery script loaded');
+            
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const gallery = document.getElementById('gallery');
+            
+            console.log('Elements found:', {
+                filterBtns: filterBtns.length,
+                galleryItems: galleryItems.length,
+                prevBtn: !!prevBtn,
+                nextBtn: !!nextBtn,
+                gallery: !!gallery
+            });
+            
+            let currentFilter = 'artworks';
+            let currentIndex = 0;
+            let itemsPerView = 3;
+            
+            // Filter functionality
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    console.log('Filter button clicked:', this.getAttribute('data-filter'));
+                    const filter = this.getAttribute('data-filter');
+                    currentFilter = filter;
+                    currentIndex = 0;
+                    
+                    // Update active filter button
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter gallery items
+                    galleryItems.forEach(item => {
+                        if (item.getAttribute('data-category') === filter) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                    
+                    // 根據照片類型和容器寬度動態調整itemsPerView
+                    const visibleItems = document.querySelectorAll(`.gallery-item[data-category="${filter}"]`);
+                    const containerWidth = document.querySelector('.gallery-container').clientWidth;
+                    
+                    if (filter === 'photography') {
+                        // 橫向照片：每張450px + 24px間距 = 474px
+                        // 計算容器能容納多少張橫向照片
+                        const landscapeItemWidth = 450 + 24; // 474px
+                        itemsPerView = Math.floor(containerWidth / landscapeItemWidth);
+                        // 確保至少顯示1張，最多顯示所有照片
+                        itemsPerView = Math.max(1, Math.min(itemsPerView, visibleItems.length));
+                    } else {
+                        // 直向照片：每張300px + 24px間距 = 324px
+                        const portraitItemWidth = 300 + 24; // 324px
+                        itemsPerView = Math.floor(containerWidth / portraitItemWidth);
+                        // 確保至少顯示1張，最多顯示所有照片
+                        itemsPerView = Math.max(1, Math.min(itemsPerView, visibleItems.length));
+                    }
+                    
+                    updateGallery();
+                });
+            });
+            
+            // Navigation functionality
+            prevBtn.addEventListener('click', function() {
+                console.log('Previous button clicked, current index:', currentIndex);
+                if (!this.classList.contains('disabled') && currentIndex > 0) {
+                    currentIndex--;
+                    updateGallery();
+                }
+            });
+            
+            nextBtn.addEventListener('click', function() {
+                console.log('Next button clicked, current index:', currentIndex);
+                const visibleItems = document.querySelectorAll(`.gallery-item[data-category="${currentFilter}"]`);
+                const maxIndex = Math.max(0, visibleItems.length - itemsPerView);
+                console.log('Max index:', maxIndex, 'Visible items:', visibleItems.length);
+                if (!this.classList.contains('disabled') && currentIndex < maxIndex) {
+                    currentIndex++;
+                    updateGallery();
+                }
+            });
+            
+            function updateGallery() {
+                console.log('Updating gallery...');
+                const visibleItems = document.querySelectorAll(`.gallery-item[data-category="${currentFilter}"]`);
+                
+                let itemWidth;
+                if (currentFilter === 'photography') {
+                    itemWidth = 450 + 24;
+                } else {
+                    itemWidth = 300 + 24;
+                }
+                
+                const translateX = -currentIndex * itemWidth;
+                gallery.style.transform = `translateX(${translateX}px)`;
+                
+                // 計算最大索引：總項目數 - 每頁顯示數量
+                const maxIndex = Math.max(0, visibleItems.length - itemsPerView);
+                
+                console.log(`Button state check: currentIndex=${currentIndex}, maxIndex=${maxIndex}, totalItems=${visibleItems.length}, itemsPerView=${itemsPerView}`);
+                
+                // 使用 CSS 類別來控制按鈕狀態
+                // 上一頁按鈕：在第一頁時禁用
+                if (currentIndex <= 0) {
+                    prevBtn.classList.add('disabled');
+                    console.log('Prev button disabled (first page)');
+                } else {
+                    prevBtn.classList.remove('disabled');
+                    console.log('Prev button enabled');
+                }
+                
+                // 下一頁按鈕：在最後一頁時禁用
+                if (currentIndex >= maxIndex) {
+                    nextBtn.classList.add('disabled');
+                    console.log('Next button disabled (last page)');
+                } else {
+                    nextBtn.classList.remove('disabled');
+                    console.log('Next button enabled');
+                }
+                
+                console.log(`Updated: Filter=${currentFilter}, Index=${currentIndex}, Items=${visibleItems.length}, MaxIndex=${maxIndex}, TranslateX=${translateX}`);
+            }
+            
+            // Initialize
+            console.log('Initializing gallery...');
+            
+            // 初始化時執行過濾器邏輯
+            galleryItems.forEach(item => {
+                if (item.getAttribute('data-category') === currentFilter) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            
+            // 初始化時設定正確的itemsPerView
+            const visibleItems = document.querySelectorAll(`.gallery-item[data-category="${currentFilter}"]`);
+            const containerWidth = document.querySelector('.gallery-container').clientWidth;
+            
+            if (currentFilter === 'photography') {
+                // 橫向照片：每張450px + 24px間距 = 474px
+                const landscapeItemWidth = 450 + 24; // 474px
+                itemsPerView = Math.floor(containerWidth / landscapeItemWidth);
+                itemsPerView = Math.max(1, Math.min(itemsPerView, visibleItems.length));
+            } else {
+                // 直向照片：每張300px + 24px間距 = 324px
+                const portraitItemWidth = 300 + 24; // 324px
+                itemsPerView = Math.floor(containerWidth / portraitItemWidth);
+                itemsPerView = Math.max(1, Math.min(itemsPerView, visibleItems.length));
+            }
+            
+            updateGallery();
+        });
+    </script>
+</body>
+</html>
