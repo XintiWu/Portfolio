@@ -1,4 +1,4 @@
-# HW1: Chloe Wu's Interactive Portfolio
+# Chloe Wu's Interactive Portfolio
 
 ## 🎬 Demo 影片介紹
 [**👉點擊直接看網站遊戲玩法👈**](https://drive.google.com/file/d/1Pcmo4PZaeC8BQG0yMXAycfI5e8g_eDH1/view?usp=sharing)
