@@ -5,7 +5,6 @@
 
 ## 線上網站
 直接點擊：https://xintiwu.github.io/Portfolio/
-(圖片載入可能需稍候)
 
 ## ⚡ 快速開始
 
