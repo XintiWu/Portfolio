@@ -4,7 +4,7 @@
 [**👉點擊直接看網站遊戲玩法👈**](https://drive.google.com/file/d/1Pcmo4PZaeC8BQG0yMXAycfI5e8g_eDH1/view?usp=sharing)
 
 ## 線上網站
-直接點擊：(https://xintiwu.github.io/Portfolio/)
+直接點擊：https://xintiwu.github.io/Portfolio/
 (圖片載入可能需稍候)
 
 ## ⚡ 快速開始
